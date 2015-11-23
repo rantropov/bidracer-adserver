@@ -71,12 +71,12 @@ mysql_syslog_tag: mysql
 
 # Databases.
 mysql_databases:
-  - name: bidracer-users
+  - name: bidracer-adserver
     encoding: latin1
     collation: latin1_general_ci
 # DB users
 mysql_users:
-  - name: bidracer
+  - name: adserver
     host: "%"
     password: $92CIhLCOS37s
     priv: "bidracer-users.*:ALL"
