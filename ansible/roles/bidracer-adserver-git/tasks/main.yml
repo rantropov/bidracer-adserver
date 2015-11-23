@@ -1,0 +1,23 @@
+- name: clone bidracer-ui git repo
+  git: repo=https://github.com/swarup-donepudi/bidracer-adserver.git
+       dest=/home/bidracer/bidracer-adserver
+       accept_hostkey=yes
+       force=yes
+       update=yes
+  sudo: yes
+  when: deploy-app
+
+- name: Change the file permissions for the repo folder
+  file: path=/home/bidracer/bidracer-adserver
+        state=directory
+        owner=bidracer
+        mode=0777
+        group=sudo
+        recurse=yes
+
+- name: Create a symlink /home/bidracer/bidracer-adserver to /var/www/bas
+  file: >
+    src=/home/bidracer/bidracer-adserver/app
+    dest=/var/www/bas
+    state=link
+  sudo: yes

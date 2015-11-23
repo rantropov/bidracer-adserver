@@ -1,0 +1,15 @@
+---
+# This playbook bootstraps the bidracer-ui server
+- hosts: all
+  remote_user: root
+  vars_files:
+    - ./vars/main.yml
+  roles:
+    - role: debian-bootstrap
+      when: orchestrate
+    - role: swarup-apache
+      when: orchestrate
+    - role: geerlingguy-mysql
+      when: orchestrate
+    - role: bidracer-adserver-git
+      when: deploy-app
