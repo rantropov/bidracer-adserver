@@ -11,5 +11,7 @@
       when: orchestrate
     - role: geerlingguy-mysql
       when: orchestrate
+    - role: geerlingguy-php-mysql
+      when: orchestrate
     - role: bidracer-adserver-git
       when: deploy-app
