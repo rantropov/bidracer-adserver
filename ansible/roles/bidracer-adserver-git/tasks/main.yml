@@ -1,11 +1,11 @@
-- name: clone bidracer-ui git repo
-  git: repo=https://github.com/swarup-donepudi/bidracer-adserver.git
+- name: clone bidracer-adserver git repo
+  git: repo=https://github.com/bidracer/bidracer-adserver.git
        dest=/home/bidracer/bidracer-adserver
        accept_hostkey=yes
        force=yes
        update=yes
   sudo: yes
-  when: deploy-app
+  when: deploy_app
 
 - name: Change the file permissions for the repo folder
   file: path=/home/bidracer/bidracer-adserver
